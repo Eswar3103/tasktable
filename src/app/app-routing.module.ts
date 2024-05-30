@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { ChildComponent } from './child/child.component';
 
 const routes: Routes = [
-  // {path: '', component: AppComponent},
-  // {path: 'rowId', component: ChildComponent}
+  //  {path: '', component: AppComponent},
+  //  {path: 'child', component: ChildComponent}
 ];
 
 @NgModule({

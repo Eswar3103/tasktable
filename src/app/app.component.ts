@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'acurd';
 
-  cur_rowid = [];
-
-  constructor(private router: Router) {}
+  id = new EventEmitter<string>();
+  showchild: boolean = false;
+  //childdata: any;
+  constructor(private router: Router,private service:DataService) {}
   data = [
     {
       id: 1,
@@ -60,8 +62,18 @@ export class AppComponent {
   ];
 
   navigateTochild(id: any) {
-    // this.router.navigate(['/child',id])
-    this.cur_rowid = id;
-    alert(this.cur_rowid);
+    // this.service.raiseDataEventEmitter(id)
+    //   console.log(id)
+    if(id){
+      this.service.raiseDataEventEmitter(id)
+      console.log(id);
+      this.showchild = true;
+    }
+    else{
+      this.showchild = false;
+    }
+    
+  
   }
+  
 }

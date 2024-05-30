@@ -1,4 +1,4 @@
-<!--table-->
+<!--table--><p>parent table</p> 
 <table class="tid-table">
   <thead>
     <td>id</td>
@@ -8,7 +8,7 @@
   </thead>
   <ng-container *ngFor="let row of data; let index = index; let even = even">
     <tr class="tid-data-row" [ngClass]="{ 'tid-even': even }">
-      <td (click)="row.showDetail = !row.showDetail" (click)="navigateTochild(row.id)">
+      <td (click)="row.showDetail = !row.showDetail" (click)="navigateTochild(row.id)" >
         {{ row.id }}
       </td>
       <td>{{ row.email }}</td>
@@ -27,6 +27,6 @@
 </table>
 <br>
 <br>
-<div>
-  <app-child [cur_rowid]="cur_rowid"></app-child>
+<div *ngIf="showchild">
+  <app-child  [id]="id" ></app-child>
 </div>

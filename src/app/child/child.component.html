@@ -1,10 +1,19 @@
-
-<div>
-    <table>
-        <tr >
-            <td>{{cur_rowid}}</td>
-          <td>{{cur_rowid.details }}</td>
-          <td></td>
-        </tr>
+<p>child table</p>
+<div class="tid-table"> 
+    <table > 
+        <thead>
+            <td>id</td>
+            <td>DOJ</td>
+            <td>address</td>
+          </thead>
+          <!-- <tr>{{id}}</tr>
+          <td>{{data_details.DOJ}}</td>
+          <td>{{data_details.address}}</td> -->
+        <tr *ngFor="let val of data_details"> 
+             <!-- <td>{{id}}</td> -->
+          <td>{{val.id}}</td>
+          <td>{{val.details.DOJ}}</td>
+          <td>{{val.details.address}}</td> 
+         </tr>
       </table>
 </div>
