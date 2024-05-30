@@ -1,28 +1,32 @@
-
-  <!--table-->
-  <table class="tid-table">
-    <thead>
-      <td>id</td>
-      <td>email</td>
-      <td>usertype</td>
-      <td>password</td>
-    </thead>
-    <ng-container *ngFor="let row of rows; let index = index; let even = even">
-      <tr class="tid-data-row" [ngClass]="{ 'tid-even': even }">
-        <td (click)="row.showDetail = !row.showDetail">
-          {{ row.id }}
-        </td>
-        <td>{{ row.email }}</td>
-        <td>{{ row.usertype }}</td>
-        <td>{{ row.password }}</td>
-      </tr>
-      <tr class="tid-detail-row" [ngClass]="{ show: row.showDetail }">
-        <td colspan="2">
-          <div>
-            <div>{{ row.details.DOJ }}</div>
-            <div>{{ row.details.address }}</div>
-          </div>
-        </td>
-      </tr>
-    </ng-container>
-  </table>
+<!--table-->
+<table class="tid-table">
+  <thead>
+    <td>id</td>
+    <td>email</td>
+    <td>usertype</td>
+    <td>password</td>
+  </thead>
+  <ng-container *ngFor="let row of data; let index = index; let even = even">
+    <tr class="tid-data-row" [ngClass]="{ 'tid-even': even }">
+      <td (click)="row.showDetail = !row.showDetail" (click)="navigateTochild(row.id)">
+        {{ row.id }}
+      </td>
+      <td>{{ row.email }}</td>
+      <td>{{ row.usertype }}</td>
+      <td>{{ row.password }}</td>
+    </tr>
+    <tr class="tid-detail-row" [ngClass]="{ show: row.showDetail }">
+      <td colspan="2">
+        <div>
+          <div>{{ row.details.DOJ }}</div>
+          <div>{{ row.details.address }}</div>
+        </div>
+      </td>
+    </tr>
+  </ng-container>
+</table>
+<br>
+<br>
+<div>
+  <app-child [cur_rowid]="cur_rowid"></app-child>
+</div>
