@@ -12,6 +12,8 @@ export class DataService {
   raiseDataEventEmitter(id:string){
     this.dataEmiiter.emit(id)
     console.log(id);
+    console.log();
+    
     
   }
 }

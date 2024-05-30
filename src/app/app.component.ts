@@ -72,8 +72,6 @@ export class AppComponent  {
     else{
       this.showchild = false;
     }
-    
-  
   }
   
 }

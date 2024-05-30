@@ -73,6 +73,7 @@ export class ChildComponent implements OnInit {
       this.id = value;
       console.log( this.id );
       this.dataFilter();
+      
     });
    
   }
